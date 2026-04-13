@@ -1,8 +1,8 @@
 /********************************** (C) COPYRIGHT *******************************
- * File Name          : hidtouchservice.h
+ * File Name          : hidkbdservice.h
  * Author             : WCH
  * Version            : V1.0
- * Date               : 2018/12/12
+ * Date               : 2018/12/10
  * Description        :
  *********************************************************************************
  * Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.
@@ -10,8 +10,8 @@
  * microcontroller manufactured by Nanjing Qinheng Microelectronics.
  *******************************************************************************/
 
-#ifndef HIDTOUCHSERVICE_H
-#define HIDTOUCHSERVICE_H
+#ifndef HIDKBDSERVICE_H
+#define HIDKBDSERVICE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,11 +26,21 @@ extern "C" {
  */
 
 // Number of HID reports defined in the service
-#define HID_NUM_REPORTS        3
+#define HID_NUM_REPORTS        14
 
 // HID Report IDs for the service
-#define HID_RPT_ID_TOUCH_IN    1                      // Mouse input report ID
-#define HID_RPT_ID_FEATURE     0                      // Feature report ID
+#define HID_RPT_ID_SYS_CTL_IN           1                      // Mouse input report ID
+#define HID_RPT_ID_CLASS_KEY_IN         2                      // Keyboard input report ID
+#define HID_RPT_ID_LED_OUT              2                      // LED output report ID
+#define HID_RPT_ID_MOUSE_IN             7                      // Mouse input report ID
+
+#define HID_RPT_ID_TOUCHPAD_IN          3                      // Touchpad input report ID
+#define HID_RPT_ID_TOUCHPAD_FEATURE     3
+#define HID_RPT_ID_CONSUMER_IN          8                      // Mouse input report ID
+#define HID_RPT_ID_SMART_WHEEL_IN       9                      // Mouse input report ID
+#define HID_RPT_ID_ALL_KEY_IN           5                       // Mouse input report ID
+#define HID_RPT_ID_FEATURE              6                      // Feature report ID
+#define HID_RPT_ID_FN_IN                0x11                       // FN input report ID
 
 // HID feature flags
 #define HID_FEATURE_FLAGS      HID_FLAGS_REMOTE_WAKE
@@ -66,7 +76,7 @@ extern bStatus_t Hid_AddService(void);
 /*********************************************************************
  * @fn      Hid_SetParameter
  *
- * @brief   Set a HID parameter.
+ * @brief   Set a HID Kbd parameter.
  *
  * @param   id     - HID report ID.
  * @param   type   - HID report type.
@@ -85,7 +95,7 @@ extern uint8_t Hid_SetParameter(uint8_t id, uint8_t type, uint16_t uuid, uint8_t
 /*********************************************************************
  * @fn      Hid_GetParameter
  *
- * @brief   Get a HID parameter.
+ * @brief   Get a HID Kbd parameter.
  *
  * @param   id     - HID report ID.
  * @param   type   - HID report type.
@@ -107,4 +117,4 @@ extern uint8_t Hid_GetParameter(uint8_t id, uint8_t type, uint16_t uuid, uint16_
 }
 #endif
 
-#endif
+#endif /* HIDKBDSERVICE_H */

@@ -40,6 +40,7 @@ void Main_Circulation()
     while(1)
     {
         TMOS_SystemProcess();
+        touchpad_task();
     }
 }
 
